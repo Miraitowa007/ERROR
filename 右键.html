@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #menu{
+            width: 50px;
+            margin-top: 20px;
+            background:#ffff0f;
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        #click{
+           
+            width:50px;
+            height: 25px;
+            color:grey;
+            text-align: center;
+            line-height: 25px;
+            
+        }  
+        #click:hover{
+            background: aqua;
+            color: #ffffff;
+        }
+        #click .active{
+            display: block;
+        } 
+    
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li id="click">打开</li>
+        <li id="click">下载</li>
+        <li id="click">分享</li>
+        <li id="click">删除</li>
+    </ul>
+    <script>
+        //为什么使用标签选择器不可以
+        omenu=document.getElementById('menu');
+        ali=omenu.getElementsByTagName('li')
+        document.oncontextmenu=function(event){
+        console.log(event);
+        event.preventDefault();
+
+        omenu.style.display= 'block';
+        var left=event.clientX;
+        var top=event.clientY;
+        console.log(left,top);
+        omenu.style.top=top + 'px';
+        omenu.style.left=left + 'px';
+        }
+        for(var i=0;i<ali.length;i++){
+            ali[i].index=i;
+            ali[i].onclick =function(event){
+                console.log(ali[this.index].innerHTML)
+            }
+        }
+        document.onclick =function(){
+            omenu.style.display='none';
+        }
+        
+        //ob.className='active';为什么不可以？
+       
+    
+    
+    </script>
+</body>
+</html>

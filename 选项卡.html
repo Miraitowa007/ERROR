@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+    #container{
+        width: 300px;
+        margin: 50px auto ;
+
+    }
+    #container{
+        width: 300px;
+        height: 40px;
+    }
+    .clearfix::after{
+        display: block;
+        content: '';
+        clear: both;
+    }
+    li{
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        float: left;
+        background: #ffffff;
+        color: yellow;
+    }
+    .search{
+        background:yellow;
+        color: #ffffff;
+    }
+    #container2{
+        width: 300px;
+        height: 300px;
+        
+    }
+    #container2>div{
+        display: none;
+        width: 300px;
+        height: 300px;
+        background: yellow;
+        color: #ffffff;
+    }
+    
+    
+    #container2 .active{
+        display: block;
+       
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="container1" class="clearfix">
+            <li class=" search" >菜单1</li>
+            <li >菜单2</li>
+            <li >菜单3</li>
+        </ul> 
+        <div id="container2">
+            <div class="active">内容1</div>
+            <div >内容2</div>
+            <div >内容3</div>
+        </div>   
+    </div>
+    <script>
+       var oa=document.getElementById('container1');
+       var ob=oa.getElementsByTagName('li');
+       var oc=document.getElementById('container2');
+       var od=oc.getElementsByTagName('div');
+      
+       for(i=0;i<ob.length;i++){
+        ob[i].index=i;
+        ob[i].onclick=function(){
+            for(j=0;j<ob.length;j++){
+                ob[j].className='';
+                od[j].className='';
+
+            }
+            ob[this.index].className='search';
+            od[this.index].className='active';
+
+        }
+       }
+    
+    
+    </script>
+</body>
+</html>
