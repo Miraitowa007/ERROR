@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 291px;
+            margin: 100px auto 0;
+            position: relative;
+        }
+        #container1{
+            width: 100%;
+            height: 100px;
+            position: relative;
+        }
+        #container1 img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        #container2{
+            height: 8px;
+            position: absolute;
+            margin-left: -90px;
+            left: 50%;
+            bottom: 20px;
+        }
+        #container2 li{
+            width: 50px;
+            height: 8px;
+            margin: 0 5px;
+            background: rgba(0,0,0,0.5);
+            float: left;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="container1">
+            <img style='opacity: 1;' src="./1.jpg" alt="">
+            <img style='opacity: 0;' src="./2.jpg" alt="">
+            <img style='opacity: 0;' src="./3.jpg" alt="">
+        </div>
+        <ul id="container2">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var aLi=document.getElementsByTagName('li');
+        var aImg=document.getElementsByTagName('img');
+        var silder=function(){
+                for(var i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aLi[i].onmouseover=function(){
+                    for(var j=0;j<aLi.length;j++){
+                        aLi[j].style.backgroundColor='rgba(0,0,0,0.5)';
+                        aImg[j].style.opacity=0;
+                    }
+                    aLi[this.index].style.backgroundColor='#ffffff';
+                    aImg[this.index].style.opacity=1;
+                }   
+            }    
+        }
+        silder();
+        var num=0;
+        var change1=function(){
+            num++;
+            if(num==aLi.length){
+                num=0;
+            }
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].style.backgroundColor='rgba(0,0,0,0.5)';
+                aImg[j].style.opacity=0;
+            }
+            aLi[num].style.backgroundColor='#ffffff';
+            aImg[num].style.opacity=1;
+        }
+        var oCon=document.getElementById('container1');
+        var timer;
+        function change(){
+            timer=setInterval(function(){
+                change1();
+            },1000);
+        }
+        change();
+        oCon.onmouseover=function(){
+            clearInterval(timer);
+        }
+        oCon.onmouseout=function(){
+            change();
+        }
+
+        
+    </script>
+</body>
+</html>

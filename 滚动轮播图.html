@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #container{
+            width:750px;
+            height: 294px;
+            margin: 100px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #container1{
+            width: 3750px;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            -webkit-transition: all 0.8s ease;
+            transition: all 0.8s ease;
+            
+            
+        }
+        #container1 img{
+            width: 750px;
+            float:left;
+            
+            /*display: none;*/
+            
+        }
+        #container1 .active{
+            display:block;
+        }
+        #container2{
+            position: absolute;
+            right: 40px;
+            bottom: 50px;
+        }   
+        #container2>li{
+            width:22px;
+            height: 22px;
+            background: rgba(0,0,0,0.5);
+            color: #ffffff;
+            float: left;
+            text-align: center;
+            line-height: 22px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+
+        }
+        #container2 .selected{
+            background: #ff0036;
+        }
+        #arrow-left{
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            margin-top:-25px;
+            cursor: pointer;
+
+        }
+        #arrow-left::after{
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-left: 5px solid #ffffff;
+            border-bottom: 5px solid #ffffff;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 12px;
+            left: 15px;
+
+
+        }
+        #arrow-right{
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            margin-top:-25px;
+            cursor: pointer;
+
+        }
+        #arrow-right::after{
+            display: inline-block;
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-right: 5px solid #ffffff;
+            border-top: 5px solid #ffffff;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 12px;
+            right: 15px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="container1">
+            <img src="./1.jpg" alt="">
+            <img src="./2.jpg" alt="">
+            <img src="./3.jpg" alt="">
+            <img src="./4.jpg" alt="">
+            <img src="./5.jpg" alt="">
+        </div>
+        <ul id="container2">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="arrow-left"></span>
+        <span id="arrow-right"></span>
+    </div>
+    <script>
+        var oCon=document.getElementById('container1');
+        var aLi=document.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                num=this.index;
+                oCon.style.left=-750*this.index+'px';
+                change();
+            aLi[this.index].className='selected';
+            }
+        }
+        var oRight=document.getElementById('arrow-right');
+        var num=0;
+        function change(){
+            for(var j=0;j<aLi.length;j++){
+                    aLi[j].className='';
+                }
+        }
+        oRight.onclick=function(){
+            num++;
+            if(num==aLi.length){
+                num=0;
+            }
+            change();
+            oCon.style.left=-750*num+'px';
+            aLi[num].className='selected';
+            
+        }
+        var oLeft=document.getElementById('arrow-left');
+        oLeft.onclick=function(){
+            num--;
+            if(num==-1){
+                num=aLi.length-1;
+            }
+            change();
+            oCon.style.left=-750*num+'px';
+            aLi[num].className='selected';
+            
+        }
+        var Ocon=document.getElementById('container')
+        var timer;
+        function change1(){
+            timer=setInterval(function(){
+            oRight.onclick();
+            },1000)
+        }
+        change1();
+        Ocon.onmouseover=function(){
+            clearInterval(timer);
+        }
+        Ocon.onmouseout=function(){
+            change1();
+        }
+        
+            
+                
+    </script>
+</body>
+</html>

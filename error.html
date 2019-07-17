@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-    21.
+    /*21.
     var s=1;
     for(var i=1;i<=10;i++){
         s=s*i;
@@ -48,8 +48,54 @@
         }
     }
     27.
-    var flag
-    k
+    var num=0;
+    for(var i=100;i<=1000;i++){
+        var flag=true;
+        for(var j=2;j<i;j++){
+            if(i%j==0){
+                flag=false;
+            }
+        }
+        if(flag){
+            document.write(i+'&nbsp');
+            num++;
+            if(num%6==0){
+                document.write('<br>');
+            }
+        }
+    }*/
+    28.
+    /*function Fib(n){
+        if(n<=2){
+            return 1;
+        }
+        var f1=1,f2=1,temp;
+        for(var i=3;i<=n;i++){
+            temp=f1+f2;
+            f1=f2;
+            f2=temp;
+        }
+        return f2;
+    }
+    function Fib(n){
+        if(n==1||n==2){
+            return 1;
+        }
+        return Fib(n-2)+Fib(n-1);
+    }*/
+    var n=window.prompt("请输入正整数n的值：")*1;
+    document.write(Fib(n));
+    function Fib(n){
+        var arr=[1,1];
+        if(n>=3){
+            for(var i=1;i<n;i++){
+                arr.push(arr[i-1]+arr[i]);
+            }
+        }return arr[n-1];
+    }
+
+        
+    
     </script>
 </body>
 </html>

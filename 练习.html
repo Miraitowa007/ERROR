@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 100px;
+            margin-top: 20px;
+            display: none;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .click{
+            width: 50px;
+            height: 30px;
+            background: #f3f5f6;
+            color: black;
+            text-align: center;
+            line-height: 30px;
+        }
+        .click:hover{
+            background: aqua;
+            color: #ffffff;
+        }
+        .active{
+            display: block;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <ul id="ul">
+        <li class="click">打开</li>
+        <li class="click">下载</li>
+        <li class="click">分享</li>
+    </ul>
+    <script>
+        var oul=document.getElementsByTagName('ul');console.log(oul)
+        var ali=document.getElementsByTagName('li');
+        document.oncontextmenu=function(event){
+            console.log(event);
+            event.preventDefault();
+            oul[0].style.display='block';
+            var top=event.clientY;
+            var left=event.clientX;
+            oul[0].style.top=top+'px';
+            oul[0].style.left=left+'px';
+        }
+        document.onclick=function(){
+            oul[0].style.display='none';
+        }
+        for(var i=0;i<ali.length;i++){
+            ali[i].index=i;
+            ali[i].onclick=function(){
+                console.log(ali[this.index].innerHTML)
+            }
+        }
+    
+    </script>
+</body>
+</html>
