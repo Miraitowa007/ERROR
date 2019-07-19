@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;;
+        }
+    h1{
+        width: 120px;
+        height: 40px;
+        background: #ff0036;
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 40px;
+    }
+    ul{
+        width: 118px;
+        border:1px solid#333;
+        display: none;
+    }
+    li{
+        width: 118px;
+        height: 40px;
+        padding: 0 10px;
+        line-height: 40px;
+    }
+    
+    </style>
+</head>
+<body>
+    <h1>第一阶段</h1>
+    <ul >
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+    <h1>第二阶段</h1>
+    <ul >
+        <li>ES6</li>
+        <li>VUE</li>
+        <li>REACT</li>
+    </ul>
+    <!--<script>
+    var aul=document.getElementsByTagName('ul');
+    var ah1=document.getElementsByTagName('h1');
+    for(var i=0;i<ah1.length;i++){
+        ah1[i].index=i;
+        ah1[i].flag=false;
+        ah1[i].onclick=function(){
+            if(this.flag){
+                aul[this.index].style.display='none';
+            }else{
+                aul[this.index].style.display='block';
+            }
+            this.flag=!this.flag;
+        }
+    }
+    </script>
+    <script>
+    var aul=document.getElementsByTagName('ul');
+    var ah1=document.getElementsByTagName('h1');
+    for(var i=0;i<ah1.length;i++){
+        ah1[i].index=i;
+        ah1[i].onclick=function(){
+            if(aul[this.index].style.display=='none'||!aul[this.index].style.display){
+                aul[this.index].style.display='block';
+            }
+            else{
+                aul[this.index].style.display='none';
+            }
+        }
+    }
+    </script>-->
+    <script>
+    var aul=document.getElementsByTagName('ul');
+    var ah1=document.getElementsByTagName('h1');
+    for(var i=0;i<ah1.length;i++){
+        ah1[i].index=i;
+        ah1[i].onclick=function(){
+            if(aul[this.index].style.display=='block'){
+                aul[this.index].style.display='none';
+            }
+            else {
+                aul[this.index].style.display='block';
+            }
+        }
+    }
+    </script>
+</body>
+</html>

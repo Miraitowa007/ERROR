@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;;
+        }
+   /* #container{
+        width: 180px;
+        height: 150px;
+        margin: 100px auto 0;
+    }
+    #container-list{
+       width: 180px;
+       height:30px;
+    }
+    #container-list li{
+        width: 60px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: aqua;
+        background:  #ffffff;
+        float: left;
+    
+    }
+    #container-list .active{
+        display: block;
+        background: aqua;
+        color: #ffffff;
+    }
+    #container-content{
+        width: 180px;
+        height: 120px;
+        
+    }
+    #container-content div{
+        width: 180px;
+        height: 120px;
+        background: aqua;
+        color: #ffffff;
+        display: none;
+    }
+    #container-content .selected{
+        display: block;
+    }
+    #click{
+        width: 100px;
+        padding-top: 10px;
+        display: none;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+    .click-1{
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background: rgba(0,0 ,0, 0.4);
+        color: aqua;
+    }
+    .click-1:hover{
+        background: aqua;
+        color: #ffffff;
+    }
+    #container{
+        width: 750px;
+        height: 291px;
+        margin: 100px auto 0;
+        position: relative;
+    }
+    #container1{
+        width: 100%;
+        height: 100%;
+    }
+    #container1 img{
+        display: none;
+        width: 100%;
+
+    }
+    #container1 .active{
+        display: block;
+    }
+    #container2{
+        height: 22px;
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+    }
+    #container2 li{
+        float: left;
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        line-height: 22px;
+        margin: 0 5px;
+        background: rgba(0,0,0,0.3);
+        color: #ffffff;
+        cursor: pointer;
+    }#container2 .selected{
+        background: aqua;
+        color: #ffffff;
+    }
+    #left{
+        width: 50px;
+        height: 50px;
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -25px;
+    }
+    #left::after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-left: 5px solid #ffffff;
+        border-bottom: 5px solid #ffffff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -10px;
+        margin-left: -10px;
+    }
+    #right{
+        width: 50px;
+        height: 50px;
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -25px;
+    }
+    #right::after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-right: 5px solid #ffffff;
+        border-top: 5px solid #ffffff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        margin-top: -10px;
+        margin-right: -10px;
+    }*/
+    #container{
+        width: 750px;
+        height: 291px;
+        margin:100px auto;
+        position: relative;
+        overflow: hidden;
+
+    }
+    #container1{
+        width: 3750px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.8s ease;
+    }
+    #container1 img{
+        float: left;
+        width: 750px;
+        height: 291px;
+
+    }
+    #container2{
+        height: 22px;
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+    }
+
+    #container2 li{
+        width: 22px;
+        height: 22px;
+        background: rgba(0,0,0,0.4);
+        text-align: center;
+        line-height: 22px;
+        margin: 0 5px;
+        float: left;
+        color: #ffffff;
+        cursor: pointer;
+
+    }
+    #container2 .selected{
+        background: aqua;
+        color: #ffffff;
+    }
+    #left{
+        width: 50px;
+        height: 50px;
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -25px;
+    }
+    #left::after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-left: 5px solid #ffffff;
+        border-bottom: 5px solid #ffffff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -10px;
+        margin-left: -10px;
+    }
+    #right{
+        width: 50px;
+        height: 50px;
+        background: rgba(0,0,0,0.3);
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -25px;
+    }
+    #right::after{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-right: 5px solid #ffffff;
+        border-top: 5px solid #ffffff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        margin-top: -10px;
+        margin-right: -10px;
+    }
+    </style>
+</head>
+<body>
+    <!--<div id="container">
+        <ul id="container-list">
+            <li class="active">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div id="container-content">
+            <div class="selected">内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+    <script>
+    var ali=document.getElementsByTagName('li');
+    var odiv=document.getElementById('container-content');
+    var acon=odiv.getElementsByTagName('div'); 
+    for(var i=0;i<ali.length;i++){
+        ali[i].index=i;
+        ali[i].onclick=function(){
+            for(var j=0;j<ali.length;j++){
+                ali[j].className='';
+                acon[j].className='';
+            }
+            ali[this.index].className='active';
+            acon[this.index].className='selected';
+        }
+    }   
+    </script>
+    <ul id="click">
+        <li class="click-1">点击</li>
+        <li class="click-1">进入</li>
+        <li class="click-1">分享</li>
+        <li class="click-1">删除</li>
+    </ul>
+    <script>
+    var ali=document.getElementsByTagName('li');
+    var oul=document.getElementById('click');
+    document.oncontextmenu=function(event){
+        oul.style.display='block';
+        event.preventDefault();
+        var left=event.clientX;
+        var top=event.clientY;
+        oul.style.left=left+'px';
+        oul.style.top=top+'px';
+    }
+    document.onclick=function(){
+        oul.style.display='none';
+    }
+    for(var i=0;i<ali.length;i++){
+        ali[i].index=i;
+        ali[i].onclick=function(){
+            console.log(ali[this.index].innerHTML);
+        }
+    }
+    </script>
+    <div id="container">
+        <div id="container1">
+            <img class="active"src="./1.jpg" alt="">
+            <img src="./2.jpg" alt="">
+            <img src="./3.jpg" alt="">
+            <img src="./4.jpg" alt="">
+        </div>
+        <ul id="container2">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <span id="left"></span>
+        <span id="right"></span>
+    </div>
+    <script>
+    var ali=document.getElementsByTagName('li');
+    var aimg=document.getElementsByTagName('img');
+    for(var i=0;i<ali.length;i++){
+        ali[i].index=i;
+        ali[i].onclick=function(){
+            num=this.index;
+            change();
+            ali[this.index].className='selected';
+            aimg[this.index].className='active';
+        }
+    }
+    function change(){
+        for(var j=0;j<ali.length;j++){
+                ali[j].className='';
+                aimg[j].className='';
+            }
+    }
+    var num=0;
+    var oRight=document.getElementById('right');
+    oRight.onclick=function(){
+        num++;
+        if(num==ali.length){
+            num=0;
+        }
+        change();
+        ali[num].className='selected';
+        aimg[num].className='active';
+
+    }
+    var oLeft=document.getElementById('left');
+    oLeft.onclick=function(){
+        num--;
+        if(num==-1){
+            num=ali.length-1;
+        }
+        change();
+        ali[num].className='selected';
+        aimg[num].className='active';
+
+    }
+    var timer;
+    var oCom=document.getElementById('container')
+    function change1(){
+        timer=setInterval(function(){
+            oRight.onclick();
+        },1000)
+    }
+    change1();
+    oCom.onmouseover=function(){
+        clearInterval(timer);
+    }
+    oCom.onmouseout=function(){
+        change1();
+    }
+    </script>-->
+    <div id="container">
+        <div id="container1">
+            <img src="./1.jpg" alt="">
+            <img src="./2.jpg" alt="">
+            <img src="./3.jpg" alt="">
+            <img src="./4.jpg" alt="">
+        </div>
+        <ul id="container2">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <span id="left"></span>
+        <span id="right"></span>
+    </div>
+    <script>
+    var ali=document.getElementsByTagName('li');
+    var oCom=document.getElementById('container1')
+    for(var i=0;i<ali.length;i++){
+        ali[i].index=i;
+        ali[i].onclick=function(){
+            num=this.index;
+            for(var j=0;j<ali.length;j++){
+                ali[j].className='';
+            }
+            ali[this.index].className='selected';
+            oCom.style.left=-750*this.index+'px';
+        }
+    }
+    function change(){
+        for(var j=0;j<ali.length;j++){
+                ali[j].className='';
+            }
+    }
+    var num=0;
+    var oRight=document.getElementById('right');
+    oRight.onclick=function(){
+        num++;
+        if(num==ali.length){
+            num=0;
+        }
+        change();
+        ali[num].className='selected';
+        oCom.style.left=-750*num+'px';
+    }
+    var oLeft=document.getElementById('left');
+    oLeft.onclick=function(){
+        num--;
+        if(num==-1){
+            num=ali.length-1
+        }
+        change();
+        ali[num].className='selected';
+        oCom.style.left=-750*num+'px';
+    }
+    
+    </script>
+
+</body>
+</html>

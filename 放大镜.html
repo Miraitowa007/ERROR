@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    #small{
+        float: left;
+        width: 400px;
+        height: 400px;
+        position: relative;
+        
+    }
+    #small img{
+        width: 400px;
+        
+    }
+    #small-small{
+        display: none;
+        width: 200px;
+        height: 200px;
+        background: rgba(255,255,255,0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #big{
+        float: left;
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        
+    }
+    #big img{
+        display: none;
+        width: 800px;
+        height: 800px;
+        position: absolute;
+        top: 0;
+        left:0;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img src="./small.jpg" alt="">
+        <div id="small-small"></div>
+    </div>
+    <div id="big">
+        <img src="./big.jpg" alt="">
+    </div>
+    <script>
+    var oSmall=document.getElementById('small');
+    var oSmall1=document.getElementById('small-small');
+    var oImg=document.getElementsByTagName('img')[1];
+    var oBig=document.getElementById('big');
+    console.log(oImg)
+    oSmall.onmouseover=function(){
+        oSmall1.style.display='block';
+        oImg.style.display='block';
+        oSmall.onmousemove=function(event){
+            
+        var oSmall1x=event.clientX-oSmall1.offsetWidth/2;
+        var oSmall1y=event.clientY-oSmall1.offsetHeight/2;
+        oSmall1.style.left=oSmall1x+'px';
+        oSmall1.style.top=oSmall1y+'px';
+        if(oSmall1.offsetLeft<=0){
+            oSmall1.style.left=0;
+        }
+        if(oSmall1.offsetTop<=0){
+            oSmall1.style.top=0;
+        }
+        if(oSmall1.offsetLeft>=oSmall.offsetWidth-oSmall1.offsetWidth){
+            oSmall1.style.left=oSmall.offsetWidth-oSmall1.offsetWidth+'px';
+        }
+        if(oSmall1.offsetTop>=oSmall.offsetHeight-oSmall1.offsetHeight){
+            oSmall1.style.top=oSmall.offsetHeight-oSmall1.offsetHeight+'px';
+        }
+        var oSmall1maxx=oSmall.offsetWidth-oSmall1.offsetWidth;
+        var oSmall1maxy=oSmall.offsetHeight-oSmall1.offsetHeight;
+        var bigmaxx=oImg.offsetWidth-oBig.offsetWidth;
+        var bigmaxy=oImg.offsetHeight-oBig.offsetHeight;
+        oImg.style.top=-bigmaxy*oSmall1y/oSmall1maxy+'px';
+        oImg.style.left=-bigmaxx*oSmall1x/oSmall1maxx+'px';
+        }
+    }
+
+    oSmall.onmouseout=function(){
+        oSmall1.style.display='none';
+        oImg.style.display='none';
+    }
+    
+    </script>
+</body>
+</html>

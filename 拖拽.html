@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    /*div{
+        width: 150px;
+        height: 150px;
+        background: rgba(234, 250, 6, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }*/
+    div{
+        width: 200px;
+        height: 200px;
+        background: #ff0036;
+    }
+    /*div:hover{
+        width: 400px;
+        transition: width 0.8s ease;
+    }*/
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv=document.getElementsByTagName('div')[0];
+        var timer=setInterval(function(){
+        oDiv.style.width=oDiv.offsetWidth+10+'px';
+        },80)
+        oDiv.onmouseover=function(){timer
+    if(oDiv.offsetWidth>=400){
+         clearInterval(timer);   
+    }
+    
+    
+    </script>
+    <!--<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    console.log(oDiv)
+    oDiv.onmousedown=function(event){
+        console.log(event);
+        var x=event.clientY-oDiv.offsetTop;
+        var y=event.clientX-oDiv.offsetLeft;
+        document.onmousemove=function(e){
+            oDiv.style.top=e.clientY-x+'px';
+            oDiv.style.left=e.clientX-y+'px';
+
+        }
+    }    
+    oDiv.onmouseup=function(){
+        document.onmousemove=null;
+    }
+    </script>-->
+</body>
+</html>

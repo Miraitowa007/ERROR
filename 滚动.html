@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    #contaner{
+        width: 400px;
+        height: 220px;
+        margin: 100px auto ;
+        border: 2px solid yellowgreen;
+        position: relative;
+        overflow: hidden;
+    }
+    #wrapper{
+        width: 560px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        
+    }
+    
+    #wrapper li{
+        float: left;
+        width: 120px;
+        height: 120px;
+        margin: 0 10px;
+        background: aqua;
+        color: #ffffff;
+        text-align: center;
+        line-height: 120px;
+    }
+    #button{
+        width: 100%;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        text-align: center;
+    }
+    #button span{
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        background: aquamarine;
+        color: #ffffff;
+        text-align: center;
+        line-height: 40px;
+        margin: 5px;
+    }
+
+    
+    
+    </style>
+</head>
+<body>
+    <div id="contaner">
+        <ul id="wrapper">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="button">
+            <span id="left">左</span>
+            <span id="right">右</span>
+        </div>
+    </div>
+    <script>
+    var oWrap=document.getElementById('wrapper');
+    oWrap.style.width=oWrap.offsetWidth*2+'px';
+    oWrap.innerHTML+=oWrap.innerHTML;
+    console.log(oWrap.style.width);
+    var tag=-10;
+    setInterval(function(){
+        oWrap.style.left=oWrap.offsetLeft+tag+'px';
+        if(oWrap.offsetLeft<=-oWrap.offsetWidth/2){
+            oWrap.style.left=0;
+        }
+        if(oWrap.offsetLeft>0){
+            oWrap.style.left=-oWrap.offsetWidth/2+'px';
+        }
+    },100)
+    var oRight=document.getElementById('right');
+    var oLeft=document.getElementById('left');
+    oRight.onclick=function(){
+        tag=10;
+    }
+    oLeft.onclick=function(){
+        tag=-10;
+    }
+
+
+    </script>
+</body>
+</html>
