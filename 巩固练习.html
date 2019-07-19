@@ -155,7 +155,7 @@
         right: 50%;
         margin-top: -10px;
         margin-right: -10px;
-    }*/
+    }
     #container{
         width: 750px;
         height: 291px;
@@ -247,6 +247,40 @@
         right: 50%;
         margin-top: -10px;
         margin-right: -10px;
+    }*/
+    #container{
+        width: 750px;
+        height: 291px;
+        margin: 100px auto;
+        position: relative;
+    }
+    #div1{
+        width: 750px;
+        height: 291px;
+        overflow: hidden;
+        position: relative;
+    }
+    #div1 img{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        
+    }
+    #div2{
+        height: 5px;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        margin-left: -90px;
+    }
+    #div2 li{
+        width: 50px;
+        height: 5px;
+        background: rgba(0,0,0,0.4);
+        margin: 0 5px;
+        float: left;
     }
     </style>
 </head>
@@ -377,7 +411,7 @@
     oCom.onmouseout=function(){
         change1();
     }
-    </script>-->
+    </script>
     <div id="container">
         <div id="container1">
             <img src="./1.jpg" alt="">
@@ -435,7 +469,35 @@
         oCom.style.left=-750*num+'px';
     }
     
+    </script>-->
+    <div id="container">
+        <div id="div1">
+            <img style='opacity: 1;'src="./1.jpg" alt="">
+            <img style='opacity: 0;' src="./2.jpg" alt="">
+            <img style='opacity: 0; 'src="./3.jpg" alt="">
+        </div>
+        <ul id="div2">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+    var aImg=document.getElementsByTagName('img');
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover=function(){
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].style.backgroundColor='rgba(0,0,0,0.5)';
+                aImg[j].style.opacity=0;
+            }
+            aLi[this.index].style.backgroundColor="#ffffff";
+            aImg[this.index].style.opacity=1;
+        }
+        
+    }
+    
     </script>
-
 </body>
 </html>
